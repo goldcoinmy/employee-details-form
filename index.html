@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Details Update Form</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #ffffff; padding: 40px; color: #000000; line-height: 1.6; }
+        .form-container { max-width: 1000px; margin: auto; }
+        .logo-container { text-align: center; margin-bottom: 25px; }
+        .logo-container img { max-width: 300px; height: auto; }
+        h1 { color: #5b9868; margin-bottom: 15px; font-size: 26px; font-weight: bold; text-align: center; }
+        .main-instruction { font-weight: bold; font-size: 15px; margin-bottom: 15px; display: block; text-align: center; }
+        .supporting-docs { font-size: 14px; margin-bottom: 30px; color: #000; background: #f8f9fa; padding: 15px; border-left: 4px solid #5b9868; border-radius: 4px; }
+        .section-bar { background: #5b9868; color: white; padding: 12px 20px; font-size: 16px; font-weight: bold; text-transform: uppercase; margin: 25px 0 10px 0; border-radius: 4px; }
+        .notice-text { font-size: 13px; color: #333; margin-bottom: 15px; font-style: italic; background: #fff9e6; padding: 10px; border-radius: 4px; border: 1px solid #ffeeba; }
+        .row { display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 15px; }
+        .field { display: flex; flex-direction: column; flex: 1; min-width: 180px; }
+        label { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+        input, select, textarea { padding: 10px; border: 1px solid #ced4da; border-radius: 4px; font-size: 14px; width: 100%; box-sizing: border-box; }
+        .table-container { width: 100%; margin-top: 10px; overflow-x: auto; }
+        table { width: 100%; border-collapse: collapse; border: 1px solid #000; }
+        th { background: #f2f2f2; font-size: 13px; text-align: left; padding: 12px; border: 1px solid #000; font-weight: bold; }
+        td { border: 1px solid #000; padding: 0; background: #fff; }
+        table input, table select { border: none; width: 100%; padding: 12px; }
+        .btn-add { background: #f8f9fa; color: #5b9868; border: 1px solid #5b9868; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold; margin-top: 10px; }
+        .declaration-box { border: 1px solid #000; padding: 20px; margin-top: 20px; }
+        .checkbox-container { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 20px; cursor: pointer; }
+        .checkbox-container input { width: 18px; height: 18px; margin-top: 2px; }
+        .submit-area { text-align: center; margin-top: 40px; }
+        button[type="submit"] { background: #5b9868; color: white; border: none; padding: 12px 40px; border-radius: 4px; cursor: pointer; font-weight: bold; font-size: 16px; }
+        #success_page { display: none; text-align: center; padding: 50px; }
+    </style>
+</head>
+<body>
+
+<div class="form-container" id="form_content">
+    <div class="logo-container"><img src="https://image2url.com/r2/default/images/1768816749464-53694642-8311-4317-ad88-6890a1921ecc.png"></div>
+    <h1>Employee Details Update Form</h1>
+    <span class="main-instruction">It is the responsibility of each staff member to promptly notify Human Resources Department of any changes in personal data.</span>
+
+    <div class="supporting-docs">
+        Kindly provide photocopies of supporting documents where applicable and submit to HR:<br><br>
+        (a) Marriage certificate, divorced certificate, death certificate, birth certificate, certificate of adoption and birth certificate, Identification Card (MyKid, MyKad or MyPR), or passport<br>
+        (b) Professional / Academic certificate and transcript (or marksheet)
+    </div>
+
+    <form action="https://docs.google.com/forms/d/e/1FAIpQLSfqQCd3dPPPsO4Rf4PPBDS2X-Uk-_oAqR1Vf1MAC1bTyQdx2A/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
+
+        <div class="section-bar">Section 1: Personal Details</div>
+        <div class="row">
+            <div class="field" style="flex: 2;"><label>Full Name (as per MyKad/Passport)</label><input type="text" name="entry.613148847" required></div>
+            <div class="field"><label>MyKad / Passport No.</label><input type="text" name="entry.369721352" required></div>
+        </div>
+        <div class="row">
+            <div class="field"><label>Gender</label><select name="entry.729362386"><option>Male</option><option>Female</option></select></div>
+            <div class="field"><label>Religion</label><input type="text" name="entry.1308395653"></div>
+            <div class="field"><label>Race</label><input type="text" name="entry.1151683819"></div>
+            <div class="field"><label>Nationality</label><input type="text" name="entry.633381801"></div>
+        </div>
+        <div class="row">
+            <div class="field"><label>Contact (Home)</label><input type="text" name="entry.956858430"></div>
+            <div class="field"><label>Contact (Mobile)</label><input type="text" name="entry.1516850154" required></div>
+            <div class="field" style="flex: 2;"><label>Personal Email Address</label><input type="email" name="entry.1529788456"></div>
+        </div>
+        <div class="field" style="margin-bottom: 15px;"><label>Permanent Address</label><textarea name="entry.1287236574" rows="2" required></textarea></div>
+        <div class="field" style="margin-bottom: 15px;"><label>Correspondence Address</label><textarea name="entry.673571377" rows="2" required></textarea></div>
+
+        <div class="section-bar">Section 2: Marital Status / Dependant Information</div>
+        <div class="row">
+            <div class="field"><label>Marital Status</label>
+                <select id="maritalStatus" name="entry.767135676" required>
+                    <option value="">-- Please Select --</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Widowed">Widowed</option>
+                    <option value="Divorced">Divorced</option>
+                </select>
+            </div>
+            <div class="field marriage-date-field" style="display:none;"><label id="dateLabel">Date of Marriage</label><input type="date" name="entry.1508142308"></div>
+            <div class="field"><label>No. of Children</label>
+                <select id="numChildren" name="entry.1347325322">
+                    <script>for(let i=0; i<=8; i++) { document.write(`<option value="${i}">${i}</option>`); }</script>
+                </select>
+            </div>
+        </div>
+
+        <div class="spouse-details" id="spouseContainer" style="display:none;">
+            <div class="row">
+                <div class="field" style="flex: 2;"><label>Spouse's Name</label><input type="text" name="entry.1352835146"></div>
+                <div class="field"><label>Spouse MyKad / Passport No.</label><input type="text" name="entry.339839986"></div>
+            </div>
+            <div class="row">
+                <div class="field"><label>Date of Birth</label><input type="date" name="entry.1351265231"></div>
+                <div class="field"><label>Nationality</label><input type="text" name="entry.1829698082"></div>
+                <div class="field"><label>Residing in Malaysia?</label><select name="entry.759811890"><option>Yes</option><option>No</option></select></div>
+            </div>
+            <div class="row">
+                <div class="field"><label>Disability</label><select name="entry.1293480847"><option value="No">No</option><option value="Yes">Yes</option></select></div>
+                <div class="field"><label>Is Your Spouse Working?</label><select id="spouseWorking" name="entry.1269317987"><option value="Yes">Yes</option><option value="No">No</option></select></div>
+                <div class="field" id="occField" style="display:none;"><label>Occupation</label><input type="text" name="entry.1743361084"></div>
+            </div>
+            <div class="row">
+                <div class="field"><label>Spouse Contact (Home)</label><input type="text" name="entry.1796413178"></div>
+                <div class="field"><label>Spouse Contact (Mobile)</label><input type="text" name="entry.1933393203"></div>
+            </div>
+        </div>
+
+        <div class="table-container child-info" id="childTableContainer" style="display:none; margin-bottom: 20px;">
+            <label style="font-weight: bold; margin-bottom: 10px; display: block;">Details of Children</label>
+            <table>
+                <thead><tr><th>Child's Name</th><th style="width:20%">NRIC No.</th><th style="width:20%">Working/Studying</th><th style="width:25%">Education Level</th></tr></thead>
+                <tbody id="childTableBody"></tbody>
+            </table>
+        </div>
+
+        <div class="section-bar">SECTION 3: FAMILY MEMBERS</div>
+        <div class="notice-text">For financial assistance verification purposes.</div>
+        <div class="table-container">
+            <table>
+                <thead><tr><th style="width: 35%;">Relationship</th><th>Name (as per MyKad or Passport)</th><th style="width: 50px;"></th></tr></thead>
+                <tbody id="familyBody"></tbody>
+            </table>
+            <button type="button" class="btn-add" onclick="addFamilyRow()">+ Add Family Member</button>
+        </div>
+
+        <div class="section-bar">Section 4: Emergency Contacts</div>
+        <div class="notice-text">The contact details you have provided may be shared with third parties when necessary for emergency or urgent situations. Therefore, it is essential to inform Human Resources of any updates promptly.</div>
+        <div class="row">
+            <div class="field"><label>Primary Contact Name</label><input type="text" name="entry.347904034" required></div>
+            <div class="field"><label>Relationship</label><input type="text" name="entry.1082403502" required></div>
+            <div class="field"><label>Contact No.</label><input type="text" name="entry.757781404" required></div>
+        </div>
+        <div class="row">
+            <div class="field"><label>Secondary Contact Name</label><input type="text" name="entry.708506600" required></div>
+            <div class="field"><label>Relationship</label><input type="text" name="entry.469158264" required></div>
+            <div class="field"><label>Contact No.</label><input type="text" name="entry.582351565" required></div>
+        </div>
+
+        <div class="section-bar">Section 5: Beneficiary Details</div>
+        <div class="notice-text">For relevant insurance payout.</div>
+        <div class="table-container">
+            <table>
+                <thead><tr><th>Name</th><th>Relationship</th><th>NRIC / Passport No.</th><th>Contact Number</th></tr></thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" name="entry.1473193796" required></td>
+                        <td><input type="text" name="entry.1189150577" required></td>
+                        <td><input type="text" name="entry.429823097" required></td>
+                        <td><input type="text" name="entry.589734293" required></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-bar">Section 6: Academic Qualification</div>
+        <div class="table-container">
+            <table>
+                <thead><tr><th>Start (MM/YYYY)</th><th>End (MM/YYYY)</th><th>School Name</th><th>Qualification Attained (full title)</th></tr></thead>
+                <tbody>
+                    <tr><td><input type="text" name="entry.663026673"></td><td><input type="text" name="entry.1906280440"></td><td><input type="text" name="entry.1751922445"></td><td><input type="text" name="entry.542361388"></td></tr>
+                    <tr><td><input type="text" name="entry.1018501560"></td><td><input type="text" name="entry.873608488"></td><td><input type="text" name="entry.662223469"></td><td><input type="text" name="entry.1003887727"></td></tr>
+                    <tr><td><input type="text" name="entry.1855362627"></td><td><input type="text" name="entry.995047807"></td><td><input type="text" name="entry.33844643"></td><td><input type="text" name="entry.519977554"></td></tr>
+                    <tr><td><input type="text" name="entry.472913344"></td><td><input type="text" name="entry.959629816"></td><td><input type="text" name="entry.1393853805"></td><td><input type="text" name="entry.621230350"></td></tr>
+                    <tr><td><input type="text" name="entry.1301210442"></td><td><input type="text" name="entry.1542998599"></td><td><input type="text" name="entry.1514164671"></td><td><input type="text" name="entry.1614413867"></td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section-bar">Data Consent & Declaration</div>
+        <div class="declaration-box">
+            <div style="font-size: 13.5px; text-align: justify; margin-bottom: 15px;">
+                <p>In line with the Malaysia Personal Data Protection Act (PDPA), I fully understand and agree that the personal information which I have provided shall be used purely for the requirements related to my employment and may be disclosed to other agencies or individuals for the purposes related to my employment with Gold Coin Group and its affiliated entities within and outside the country.</p>
+                <p>I hereby declare that the information given by me in this form is correct and true to the best of my knowledge. I further undertake to keep the Company informed of any changes. I understand that falsification or misrepresentation of facts will be sufficient cause for disciplinary action which includes dismissal from the Company.</p>
+                <p>I hereby consent to the processing of my personal data in accordance with all of the statutory requirements, regulatory bodies, insurance broker, training provider and other related agencies appointed by the Company.</p>
+            </div>
+            <label class="checkbox-container">
+                <input type="checkbox" name="entry.2146703243" value="I hereby acknowledge and agree to the above declaration." required>
+                <span style="font-weight:bold; color:#5b9868;">I hereby acknowledge and agree to the above declaration.</span>
+            </label>
+            <div class="row">
+                <div class="field" style="flex: 2;"><label>Type your MyKad/Passport No. as acknowledgment</label><input type="text" name="entry.2117935989" required></div>
+                <div class="field"><label>Date</label><input type="date" id="declarationDate" name="entry.1908340689" required></div>
+            </div>
+        </div>
+
+        <div class="submit-area"><button type="submit">SUBMIT ALL UPDATES</button></div>
+    </form>
+</div>
+
+<iframe name="hidden_iframe" style="display:none;" onload="if(submitted){showSuccess();}"></iframe>
+
+<script>
+    var submitted = false;
+    const familyMap = { 
+        "Father": "617434904", "Mother": "1175851786", "Sibling 1": "777140620", "Sibling 2": "1430302983",
+        "Sibling 3": "1384801077", "Sibling 4": "616143658", "Sibling 5": "671040088",
+        "Father-in-law": "867007932", "Mother-in-law": "143032424", 
+        "Paternal Grandfather": "486871941", "Paternal Grandmother": "1703529257", 
+        "Maternal Grandfather": "850026997", "Maternal Grandmother": "360569653" 
+    };
+
+    const childIds = { 
+        names: ['1623626249', '2075222743', '758839839', '648079221', '1258952634', '125238604', '1395722547', '1277702751'], 
+        ics: ['783221029', '1188642860', '74397015', '152114360', '1297152850', '1457321561', '1971294396', '644556832'], 
+        status: ['96845136', '1104160996', '1618807227', '1462700442', '712677160', '1894000290', '122526497', '2040904213'], 
+        edu: ['174343414', '1523111253', '580826194', '926516510', '1597403213', '833149703', '201074173', '736651921'] 
+    };
+
+    function addFamilyRow() {
+        const tbody = document.getElementById('familyBody');
+        const row = document.createElement('tr');
+        let options = '<option value="">Select Relationship</option>';
+        for (let rel in familyMap) options += `<option value="${familyMap[rel]}">${rel}</option>`;
+        row.innerHTML = `<td><select onchange="this.closest('tr').querySelector('.f-name').name='entry.'+this.value">${options}</select></td><td><input type="text" class="f-name"></td><td style="text-align:center;"><button type="button" onclick="this.closest('tr').remove()" style="color:red; border:none; background:none; cursor:pointer;">&times;</button></td>`;
+        tbody.appendChild(row);
+    }
+
+    function updateLogic() {
+        const status = document.getElementById('maritalStatus').value;
+        const count = parseInt(document.getElementById('numChildren').value);
+        const spouseWorking = document.getElementById('spouseWorking').value;
+        const spouseContainer = document.getElementById('spouseContainer');
+        const marriageDateField = document.querySelector('.marriage-date-field');
+        const dateLabel = document.getElementById('dateLabel');
+
+        if (status === 'Married') {
+            dateLabel.innerText = 'Date of Marriage';
+            marriageDateField.style.display = 'flex';
+            spouseContainer.style.display = 'block';
+        } else if (status === 'Divorced') {
+            dateLabel.innerText = 'Date of Divorce';
+            marriageDateField.style.display = 'flex';
+            spouseContainer.style.display = 'none';
+        } else {
+            marriageDateField.style.display = 'none';
+            spouseContainer.style.display = 'none';
+        }
+
+        document.getElementById('occField').style.display = (spouseWorking === 'Yes' && status === 'Married') ? 'flex' : 'none';
+
+        const tableBody = document.getElementById('childTableBody');
+        document.getElementById('childTableContainer').style.display = count > 0 ? 'block' : 'none';
+        tableBody.innerHTML = '';
+        for (let i = 0; i < count; i++) {
+            tableBody.innerHTML += `<tr><td><input type="text" name="entry.${childIds.names[i]}"></td><td><input type="text" name="entry.${childIds.ics[i]}"></td><td><select name="entry.${childIds.status[i]}"><option>Working</option><option>Studying</option></select></td><td><select name="entry.${childIds.edu[i]}"><option>Preschool</option><option>Primary</option><option>Secondary</option><option>Tertiary</option></select></td></tr>`;
+        }
+    }
+
+    window.onload = () => { addFamilyRow(); updateLogic(); document.getElementById('declarationDate').value = new Date().toISOString().split('T')[0]; };
+    document.getElementById('maritalStatus').addEventListener('change', updateLogic);
+    document.getElementById('numChildren').addEventListener('change', updateLogic);
+    document.getElementById('spouseWorking').addEventListener('change', updateLogic);
+    
+    function showSuccess() { document.getElementById('form_content').style.display = 'none'; document.getElementById('success_page').style.display = 'block'; window.scrollTo(0,0); }
+</script>
+
+<div id="success_page" style="text-align:center; padding: 100px;">
+    <h2 style="color: #5b9868;">Updates Submitted Successfully</h2>
+    <p>Thank you. Your record has been sent to HR.</p>
+</div>
+</body>
+</html>
