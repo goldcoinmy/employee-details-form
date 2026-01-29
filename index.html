@@ -80,7 +80,7 @@
             <div class="field"><label>Contact (Mobile)</label><input type="text" name="entry.1516850154" required></div>
             <div class="field" style="flex: 2;"><label>Personal Email Address</label><input type="email" name="entry.1529788456" required></div>
         </div>
-        <div class="field" style="margin-bottom: 15px;"><label>Permanent Address</label><textarea name="entry.1287236574" rows="2" required></textarea></div>
+        <div class="field" style="margin-bottom: 15px;"><label>Residential Address</label><textarea name="entry.1287236574" rows="2" required></textarea></div>
         <div class="field" style="margin-bottom: 15px;"><label>Correspondence Address</label><textarea name="entry.673571377" rows="2" required></textarea></div>
 
         <div class="section-bar">Section 2: Marital Status / Dependent Information</div>
@@ -253,7 +253,6 @@
         document.getElementById('childTableContainer').style.display = count > 0 ? 'block' : 'none';
         tableBody.innerHTML = '';
         for (let i = 0; i < count; i++) {
-            // Changed input type to date for the DOB field
             tableBody.innerHTML += `<tr><td><input type="text" name="entry.${childIds.names[i]}"></td><td><input type="date" name="entry.${childIds.dob[i]}"></td><td><select name="entry.${childIds.status[i]}"><option>Working</option><option>Studying</option></select></td><td><select name="entry.${childIds.edu[i]}"><option>Preschool</option><option>Primary</option><option>Secondary</option><option>Tertiary</option></select></td></tr>`;
         }
     }
