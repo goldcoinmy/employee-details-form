@@ -49,6 +49,22 @@
     <form action="https://docs.google.com/forms/d/e/1FAIpQLSfqQCd3dPPPsO4Rf4PPBDS2X-Uk-_oAqR1Vf1MAC1bTyQdx2A/formResponse" method="POST" target="hidden_iframe" onsubmit="submitted=true;">
 
         <div class="section-bar">Section 1: Personal Details</div>
+        
+        <div class="row">
+            <div class="field">
+                <label>Entity</label>
+                <select name="entry.935615116" required>
+                    <option value="">-- Please Select Entity --</option>
+                    <option value="GC Feedmills - Port Klang">GC Feedmills - Port Klang</option>
+                    <option value="GC Feedmlls - Butterworth">GC Feedmlls - Butterworth</option>
+                    <option value="GC Specialities">GC Specialities</option>
+                    <option value="GC Sarawak">GC Sarawak</option>
+                    <option value="GC Feedmill Sabah">GC Feedmill Sabah</option>
+                    <option value="Research Farm">Research Farm</option>
+                </select>
+            </div>
+        </div>
+
         <div class="row">
             <div class="field" style="flex: 2;"><label>Full Name (as per MyKad/Passport)</label><input type="text" name="entry.613148847" required></div>
             <div class="field"><label>MyKad / Passport No.</label><input type="text" name="entry.369721352" required></div>
@@ -93,13 +109,7 @@
             </div>
             <div class="row">
                 <div class="field"><label>Date of Birth</label><input type="date" name="entry.1351265231"></div>
-                <div class="field"><label>Nationality</label><input type="text" name="entry.1829698082"></div>
-                <div class="field"><label>Residing in Malaysia?</label><select name="entry.759811890"><option>Yes</option><option>No</option></select></div>
-            </div>
-            <div class="row">
-                <div class="field"><label>Disability</label><select name="entry.1293480847"><option value="No">No</option><option value="Yes">Yes</option></select></div>
                 <div class="field"><label>Is Your Spouse Working?</label><select id="spouseWorking" name="entry.1269317987"><option value="Yes">Yes</option><option value="No">No</option></select></div>
-                <div class="field" id="occField" style="display:none;"><label>Occupation</label><input type="text" name="entry.1743361084"></div>
             </div>
             <div class="row">
                 <div class="field"><label>Spouse Contact (Home)</label><input type="text" name="entry.1796413178"></div>
@@ -220,7 +230,6 @@
     function updateLogic() {
         const status = document.getElementById('maritalStatus').value;
         const count = parseInt(document.getElementById('numChildren').value);
-        const spouseWorking = document.getElementById('spouseWorking').value;
         const spouseContainer = document.getElementById('spouseContainer');
         const marriageDateField = document.querySelector('.marriage-date-field');
         const dateLabel = document.getElementById('dateLabel');
@@ -229,16 +238,10 @@
             dateLabel.innerText = 'Date of Marriage';
             marriageDateField.style.display = 'flex';
             spouseContainer.style.display = 'block';
-        } else if (status === 'Divorced') {
-            dateLabel.innerText = 'Date of Divorce';
-            marriageDateField.style.display = 'flex';
-            spouseContainer.style.display = 'none';
         } else {
             marriageDateField.style.display = 'none';
             spouseContainer.style.display = 'none';
         }
-
-        document.getElementById('occField').style.display = (spouseWorking === 'Yes' && status === 'Married') ? 'flex' : 'none';
 
         const tableBody = document.getElementById('childTableBody');
         document.getElementById('childTableContainer').style.display = count > 0 ? 'block' : 'none';
