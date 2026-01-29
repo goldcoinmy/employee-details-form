@@ -120,7 +120,13 @@
         <div class="table-container child-info" id="childTableContainer" style="display:none; margin-bottom: 20px;">
             <label style="font-weight: bold; margin-bottom: 10px; display: block;">Details of Children</label>
             <table>
-                <thead><tr><th>Child's Name</th><th style="width:20%">NRIC No.</th><th style="width:20%">Working/Studying</th><th style="width:25%">Education Level</th></tr></thead>
+                <thead>
+                    <tr>
+                        <th>Child's Name</th>
+                        <th style="width:20%">Date of Birth</th> <th style="width:20%">Working/Studying</th>
+                        <th style="width:25%">Education Level</th>
+                    </tr>
+                </thead>
                 <tbody id="childTableBody"></tbody>
             </table>
         </div>
@@ -213,7 +219,7 @@
 
     const childIds = { 
         names: ['1623626249', '2075222743', '758839839', '648079221', '1258952634', '125238604', '1395722547', '1277702751'], 
-        ics: ['783221029', '1188642860', '74397015', '152114360', '1297152850', '1457321561', '1971294396', '644556832'], 
+        dob: ['783221029', '1188642860', '74397015', '152114360', '1297152850', '1457321561', '1971294396', '644556832'], 
         status: ['96845136', '1104160996', '1618807227', '1462700442', '712677160', '1894000290', '122526497', '2040904213'], 
         edu: ['174343414', '1523111253', '580826194', '926516510', '1597403213', '833149703', '201074173', '736651921'] 
     };
@@ -247,7 +253,8 @@
         document.getElementById('childTableContainer').style.display = count > 0 ? 'block' : 'none';
         tableBody.innerHTML = '';
         for (let i = 0; i < count; i++) {
-            tableBody.innerHTML += `<tr><td><input type="text" name="entry.${childIds.names[i]}"></td><td><input type="text" name="entry.${childIds.ics[i]}"></td><td><select name="entry.${childIds.status[i]}"><option>Working</option><option>Studying</option></select></td><td><select name="entry.${childIds.edu[i]}"><option>Preschool</option><option>Primary</option><option>Secondary</option><option>Tertiary</option></select></td></tr>`;
+            // Changed input type to date for the DOB field
+            tableBody.innerHTML += `<tr><td><input type="text" name="entry.${childIds.names[i]}"></td><td><input type="date" name="entry.${childIds.dob[i]}"></td><td><select name="entry.${childIds.status[i]}"><option>Working</option><option>Studying</option></select></td><td><select name="entry.${childIds.edu[i]}"><option>Preschool</option><option>Primary</option><option>Secondary</option><option>Tertiary</option></select></td></tr>`;
         }
     }
 
