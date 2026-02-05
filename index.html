@@ -250,7 +250,26 @@
         document.getElementById('childTableContainer').style.display = count > 0 ? 'block' : 'none';
         tableBody.innerHTML = '';
         for (let i = 0; i < count; i++) {
-            tableBody.innerHTML += `<tr><td><input type="text" name="entry.${childIds.names[i]}"></td><td><input type="date" name="entry.${childIds.dob[i]}"></td><td><select name="entry.${childIds.status[i]}"><option>Working</option><option>Studying</option></select></td><td><select name="entry.${childIds.edu[i]}"><option>Preschool</option><option>Primary</option><option>Secondary</option><option>Tertiary</option></select></td></tr>`;
+            tableBody.innerHTML += `<tr>
+                <td><input type="text" name="entry.${childIds.names[i]}"></td>
+                <td><input type="date" name="entry.${childIds.dob[i]}"></td>
+                <td>
+                    <select name="entry.${childIds.status[i]}">
+                        <option value="N/A">N/A</option>
+                        <option value="Working">Working</option>
+                        <option value="Studying">Studying</option>
+                    </select>
+                </td>
+                <td>
+                    <select name="entry.${childIds.edu[i]}">
+                        <option value="N/A">N/A</option>
+                        <option>Preschool</option>
+                        <option>Primary</option>
+                        <option>Secondary</option>
+                        <option>Tertiary</option>
+                    </select>
+                </td>
+            </tr>`;
         }
     }
 
